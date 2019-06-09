@@ -7,7 +7,6 @@ const Event = new Schema({
     event: String,
     homeTeam: String,
     awayTeam: String,
-    thumbPath: String,
     parentAccount: ObjectId
 })
 
