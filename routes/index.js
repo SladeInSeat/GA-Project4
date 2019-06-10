@@ -8,7 +8,7 @@ const apiController = require('../controllers/apiController.js')
 //  Account CRUD routes
 
 //  Create: creates or logs in a user
-router.patch("/account/login", accountController.loginOrCreate)
+router.patch("/account/create", accountController.loginOrCreate)
 
 //  Loads landing page, should find a better place than this file
 router.get("/", accountController.showLandingPage)
