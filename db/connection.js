@@ -6,7 +6,7 @@ if(process.env.MONGODB_URI) {
     mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true })
 } else {
     console.log('using mongodb://localhost/bigboard')
-    mongoose.connect('mongodb://localhost/bigboard')
+    mongoose.connect('mongodb://localhost/bigboard', { useNewUrlParser: true })
 }
 
 mongoose.connection.on('error', (err) => {

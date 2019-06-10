@@ -6,11 +6,12 @@ mongoose = require('mongoose')
 
 
 const newAccount = {name: 'test account', balance: 1000}
+const newAccount2 = {name: 'second account', balance: 800}
 
 
 const createSeeds = async () => {
     await Account.deleteMany()
-    let createdAccount = await Account.create(newAccount)
+    let createdAccount = await Account.create(newAccount,newAccount2)
     console.log(createdAccount)
 
     let foundAccount = await Account.find()
