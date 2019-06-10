@@ -6,15 +6,21 @@ class LogIn extends Component {
     state = {
         accounts : [{
           balance:1000,
-          name:"test account"}]
+          name:"test account"}],
+        activeAccount : {}
     }
 
     componentDidMount(){
         axios.get('/accounts')
         .then((accountList) => {
-          console.log(accountList)
           this.setState({accounts : accountList.data})
         })
+    }
+
+    setActiveAccount = (accountObj) => {
+      let data = accountObj['account']
+      this.setState({activeAccount: data})
+
     }
 
     render () {
@@ -26,7 +32,7 @@ class LogIn extends Component {
               return (<li key={index}>
               Account Name: {account.name}
               <br></br>Balance: {account.balance}
-              <br></br><button>Login</button></li>)
+              <br></br><button onClick ={() => {this.setActiveAccount({account})}} >Login</button></li>)
             })}
             </ol>
 
