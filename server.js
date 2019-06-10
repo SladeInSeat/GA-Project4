@@ -1,16 +1,15 @@
 const express = require('express')
 const logger = require('morgan')
 const app = express()
-const router = express.Router
+const routes = require('./routes/index.js')
 
 
 app.use(logger('dev'))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send("Hello World")
-})
+
+app.use('/', routes)
 
 const PORT = process.env.PORT || 3001
 

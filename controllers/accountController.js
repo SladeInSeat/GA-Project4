@@ -4,7 +4,7 @@ const accountController = {
 
     loginOrCreate: async function (req, res) {
         let loggedInAccount = await Account.findOneAndUpdate(
-            { name: req.body.AccountName },
+            { name: req.body.accountName },
             {},
             {
                 new: true,
@@ -14,7 +14,7 @@ const accountController = {
     },
 
     createAccount: async function (req, res) {
-        let newAccount = await Account.create({ AccountName: req.body.AccountName })
+        let newAccount = await Account.create({ accountName: req.body.accountName })
         return res.json(newAccount)
     },
 
@@ -29,21 +29,21 @@ const accountController = {
     },
 
     updateAccountName: async function (req, res) {
-        let updatedAccount = await Account.findByIdAndUpdate(req.body.AccountId,
-            { $set: { name: req.body.AccountName } },
+        let updatedAccount = await Account.findByIdAndUpdate(req.body.accountId,
+            { $set: { name: req.body.accountName } },
             { new: true })
         return res.json(updatedAccount)
     },
 
     updateAccountBalance: async function (req, res) {
-        let updatedAccount = await Account.findByIdAndUpdate(req.body.AccountId,
-            { $set: { balance: req.body.AccountBalance } },
+        let updatedAccount = await Account.findByIdAndUpdate(req.body.accountId,
+            { $set: { balance: req.body.accountBalance } },
             { new: true })
         return res.json(updatedAccount)
     },
 
     deleteAccount: async function (req, res) {
-        await Account.findByIdAndDelete(req.body.AccountId)
+        await Account.findByIdAndDelete(req.body.accountId)
         return res.json(req.body)
     },
 

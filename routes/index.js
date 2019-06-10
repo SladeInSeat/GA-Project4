@@ -14,20 +14,20 @@ router.patch("/account/login", accountController.loginOrCreate)
 router.get("/", accountController.showLandingPage)
 
 //  Read: all accounts
-router.get("/accounts", accountController.findAccountByName)
+router.get("/accounts", accountController.findAllAccounts)
 
 //  Read: single account
 router.get("/account", accountController.findAccountByName)
 
 //  Update: updates name
-router.patch("account/updateName", accountController.updateAccountName)
+router.patch("/account/updateName", accountController.updateAccountName)
 
 //  Update: updates balance
-router.patch("account/updateBalance", accountController.updateAccountBalance)
+router.patch("/account/updateBalance", accountController.updateAccountBalance)
 
 //  Delete: deletes single user
-router.delete("account", accountController.deleteAccount)
+router.delete("/account", accountController.deleteAccount)
 
-
+module.exports = router
 
 

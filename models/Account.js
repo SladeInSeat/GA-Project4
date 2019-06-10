@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 const Account = new Schema({
     name: String,
-    balance: Number
+    balance: {type: Number, default: 100}
 })
 
 module.exports = mongoose.model('Account', Account)
