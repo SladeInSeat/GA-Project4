@@ -55,6 +55,7 @@ const createSeeds = async () => {
                                             }
                                         )
     console.log(createWager)
+    await mongoose.disconnect()
 }
 
 createSeeds()
