@@ -23,7 +23,10 @@ class LogIn extends Component {
             <h1>Log-In</h1>    
             <ol>
             {this.state.accounts.map((account, index) => {
-              return (<li key={index}>{account.name}<br></br>{account.balance}</li>)
+              return (<li key={index}>
+              Account Name: {account.name}
+              <br></br>Balance: {account.balance}
+              <br></br><button>Login</button></li>)
             })}
             </ol>
 
