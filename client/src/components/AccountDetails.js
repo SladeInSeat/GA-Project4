@@ -32,23 +32,19 @@ class AccountDetails extends Component {
         })
             .then(() => {
                 axios.get('/account', { params: { accountId: this.props.match.params.accountId } })
-                .then((foundacc) => {
-                    this.setState({ account: foundacc.data[0] })
-                })
+                    .then((foundacc) => {
+                        this.setState({ account: foundacc.data[0] })
+                    })
 
             })
     }
 
     handleDeposit = (event) => {
         this.setState({ deltaDeposit: event.target.value })
-        // let calculatedBalance = this.state.account.balance + this.state.deltaBalance
-        // this.setState({newBalance: calculatedBalance})
     }
 
     handleWithrawl = (event) => {
         this.setState({ deltaWithdraw: event.target.value })
-        // let calculatedBalance = this.state.account.balance - this.state.deltaBalance
-        // this.setState({newBalance: calculatedBalance})
     }
 
     handleTransaction = async (event) => {
@@ -63,17 +59,17 @@ class AccountDetails extends Component {
         })
             .then(() => {
                 axios.get('/account', { params: { accountId: this.props.match.params.accountId } })
-                .then((foundacc) => {
-                    this.setState({ account: foundacc.data[0] })
-                })
+                    .then((foundacc) => {
+                        this.setState({ account: foundacc.data[0] })
+                    })
             }).then(() => {
-                this.setState({ deltaBalance: 0, newBalance: 0, deltaDeposit: 0, deltaWithdraw: 0 })
+                this.setState({ newBalance: 0, deltaDeposit: 0, deltaWithdraw: 0 })
             })
     }
 
     handleDelete = () => {
         axios.delete('/account', { data: { accountId: this.state.account._id } })
-        .then( () => this.props.history.push('/'))
+            .then(() => this.props.history.push('/'))
 
     }
 
