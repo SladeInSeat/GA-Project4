@@ -5,14 +5,9 @@ import axios from 'axios'
 
 class LogIn extends Component {
   state = {
-    accounts: [{
-      balance: 100,
-      name: "hardcoded"
-    }],
+    accounts: [],
     activeAccount: {},
-    newAccountName: "",
-    deposit: 0,
-    withdraw: 0
+    newAccountName: ""
   }
 
   componentDidMount() {
@@ -23,8 +18,12 @@ class LogIn extends Component {
   }
 
   setActiveAccount = (accountObj) => {
-    let accountData = accountObj['account']
-    this.setState({ activeAccount: accountData })
+    let newActiveAccount = this.state.activeAccount
+    newActiveAccount['name'] = accountObj['account']['name']
+    newActiveAccount['_id'] = accountObj['account']['_id']
+    newActiveAccount['balance'] = accountObj['account']['balance']
+    this.setState({ activeAccount: newActiveAccount })
+    this.props.history.push('/dashboard')
   }
 
   handleNameChange = (event) => {
