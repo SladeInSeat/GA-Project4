@@ -73,12 +73,6 @@ class LogIn extends Component {
               Account Name: {account.name}
               <br></br>Balance: {account.balance}
               <br></br><button onClick={() => { this.setActiveAccount({ account }) }} >Login</button>
-              <button onClick={() => { this.handleDeleteAccount({ account }) }} >Delete</button>
-              <br></br><input
-                        type="number"
-                        value={this.state.deposit}
-                        onChange={this.handleDepositChange}
-                        />
               <br></br>
               <Link to={`/accountDetails/${account._id}`}>Account Details</Link>
               </li>)
