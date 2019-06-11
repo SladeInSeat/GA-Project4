@@ -17,7 +17,7 @@ router.get("/", accountController.showLandingPage)
 router.get("/accounts", accountController.findAllAccounts)
 
 //  Read: single account
-router.get("/account", accountController.findAccountByName)
+router.get("/account", accountController.findAccountById)
 
 //  Update: updates name
 router.patch("/account/updateName", accountController.updateAccountName)

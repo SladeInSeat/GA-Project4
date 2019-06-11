@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 
@@ -77,8 +78,9 @@ class LogIn extends Component {
                         type="number"
                         value={this.state.deposit}
                         onChange={this.handleDepositChange}
-
                         />
+              <br></br>
+              <Link to={`/accountDetails/${account._id}`}>Account Details</Link>
               </li>)
           })}
         </ol>

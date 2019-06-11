@@ -23,8 +23,8 @@ const accountController = {
         return res.json(allAccounts)
     },
 
-    findAccountByName: async function (req, res) {
-        let account = await Account.find({ name: req.body.name })
+    findAccountById: async function (req, res) {
+        let account = await Account.find({ _id: req.query.accountId })
         return res.json(account)
     },
 
