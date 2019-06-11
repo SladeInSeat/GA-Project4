@@ -28,6 +28,9 @@ router.patch("/account/updateBalance", accountController.updateAccountBalance)
 //  Delete: deletes single user
 router.delete("/account", accountController.deleteAccount)
 
+// API: get next 15 games
+router.get("/api/next15", apiController.leagueNext15Games)
+
 module.exports = router
 
 
