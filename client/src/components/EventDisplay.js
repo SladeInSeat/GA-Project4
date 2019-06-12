@@ -26,9 +26,7 @@ class EventDisplay extends Component{
             }
         ]
     }
-    componentDidMount(){
 
-    }
     getNext15LeagueGames = async  () => {
         let gamesListObj = await axios.get('/api/next15')
         let gameList = []
@@ -56,6 +54,7 @@ class EventDisplay extends Component{
                 </li>
             )
         })
+        
         return(
             <div>
                 I am EventDisplay

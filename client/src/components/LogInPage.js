@@ -43,8 +43,8 @@ class LogIn extends Component {
 
   handleDepositChange = (event) => {
     this.setState({deposit: event.target.value})
-
   }
+  
   handleDeposit = (amount) => {
     axios.patch('/account/updateBalance', {accountBalance: amount})
   }

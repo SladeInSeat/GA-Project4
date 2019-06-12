@@ -48,6 +48,7 @@ class App extends Component {
         <Switch>
             <Route exact path="/" component={LogInPage}/>
             <Route path="/accountDetails/:accountId" component={AccountDetails}/>
+            {/* <Route path="/wagerDetails/:wagerId" */}
             <Route path="/dashboard" render={DashboardRender}/>
         </Switch>
         </div>

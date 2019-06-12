@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import EventDisplay from './EventDisplay';
 import CreateWager from './CreateWager';
+import WagerDisplay from './WagerDisplay';
 
 
 class Dashboard extends Component {
@@ -21,6 +22,8 @@ class Dashboard extends Component {
                 <EventDisplay/>
                 <br></br>
                 <CreateWager/>
+                <br></br>
+                <WagerDisplay/>
             </div>
         )
     }
