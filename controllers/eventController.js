@@ -9,8 +9,23 @@ eventController = {
     },
 
     findEventById : async function (req, res) {
-        let event = Event.findById(req.body.eventId)
-        
+        let foundEvent = await Event.find({_id: req.body.eventId})
+        return res.json(foundEvent)
+    },
+
+    createEvent : async function (req,res) {
+        let newEvent = await Event.create({idEvent: req.body.idEvent,
+                                    event: req.body.event,
+                                    homeTeam: req.body.homeTeam,
+                                    awayTeam: req.body.awayTeam,
+                                    parentAccount: req.body.parentAccount
+                                })
+        return res.json(newEvent)
+    },
+
+    deleteEvent : async function (req,res) {
+        await Event.findByIdAndRemove({_id: req.body.eventId})
+        return res.json(req.body)
     }
 
 }

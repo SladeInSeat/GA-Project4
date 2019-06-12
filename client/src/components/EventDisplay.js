@@ -58,6 +58,7 @@ class EventDisplay extends Component{
         })
         return(
             <div>
+                I am EventDisplay
                 <ol>
                     {viewEventList}
                 </ol>

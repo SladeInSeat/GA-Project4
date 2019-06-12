@@ -13,23 +13,35 @@ router.patch("/account/create", accountController.loginOrCreate)
 //  Loads landing page, should find a better place than this file
 router.get("/", accountController.showLandingPage)
 
-//  Read: all accounts
+//  Accounts Read all accounts
 router.get("/accounts", accountController.findAllAccounts)
 
-//  Read: single account
+//  Accounts Read: single account
 router.get("/account", accountController.findAccountById)
 
-//  Update: updates name
+//  Accounts Update: updates name
 router.patch("/account/updateName", accountController.updateAccountName)
 
-//  Update: updates balance
+//  Accounts Update: updates balance
 router.patch("/account/updateBalance", accountController.updateAccountBalance)
 
-//  Delete: deletes single user
+//  Accounts Delete: deletes single user
 router.delete("/account", accountController.deleteAccount)
 
-// API: get next 15 games
+//  API: get next 15 games
 router.get("/api/next15", apiController.leagueNext15Games)
+
+//  Event: get all events
+router.get("/events", eventController.findAllEvents)
+
+//  Event: find event by Id
+router.get("/event", eventController.findEventById)
+
+//  Event: create event
+router.post("/event", eventController.createEvent)
+
+//  Event: delete event
+router.delete("/event", eventController.deleteEvent)
 
 module.exports = router
 
