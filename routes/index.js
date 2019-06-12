@@ -43,6 +43,21 @@ router.post("/event", eventController.createEvent)
 //  Event: delete event
 router.delete("/event", eventController.deleteEvent)
 
+//  Wager: get all wagers
+router.get("/wagers", wagerController.findAllWagers)
+
+//  Wager; get wager by Id
+router.get("/wager", wagerController.findWagerById)
+
+//  Wager: create wager
+router.post("/wager", wagerController.createWager)
+
+//  Wager: update wager amount
+router.patch("/wager/updateAmount", wagerController.updateWagerAmount)
+
+//  Wager: delete wager
+router.delete("/wager", wagerController.deleteWager)
+
 module.exports = router
 
 
