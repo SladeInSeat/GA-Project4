@@ -11,10 +11,15 @@ wagerController =  {
         })
         return res.json(newWager)
     },
-
+    //  only used in development, kept for debugging
     findAllWagers: async function(req,res) {
         let allWagers = await Wager.find()
         return res.json(allWagers)
+    },
+
+    findAllWagersByAccount: async function(req,res) {
+        let allWagersByAccount = await Wager.find({parentAccount: req.query.parentAccount})
+        return res.json(allWagersByAccount)
     },
 
     findWagerById: async function (req,res) {

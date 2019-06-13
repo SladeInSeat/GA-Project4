@@ -43,8 +43,8 @@ router.post("/event", eventController.createEvent)
 //  Event: delete event
 router.delete("/event", eventController.deleteEvent)
 
-//  Wager: get all wagers
-router.get("/wagers", wagerController.findAllWagers)
+//  Wager: get all wagers of an account
+router.get("/wagers", wagerController.findAllWagersByAccount)
 
 //  Wager; get wager by Id
 router.get("/wager", wagerController.findWagerById)

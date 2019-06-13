@@ -18,17 +18,10 @@ class CreateWager extends Component {
         newWager: {
             toWin: ' ',
             wager: 0
-            // parentIdEvent: "596690",
-            // event: "Miami Marlins vs Atlanta Braves",
-            // parentAccount: "5cfe95dc08616b0004602dae"
         },
         tempWager: 0,
         tempToWin: ''
     }
-    componentDidMount(){
-
-    }
-
 
     handleChangeToWin = (event) => {
         this.setState({tempToWin: event.target.value});
@@ -56,6 +49,7 @@ class CreateWager extends Component {
                                 event: this.props.activeEvent.event,
                                 parentAccount: this.props.activeAccount._id}
         )
+        await this.props.switchWagerUpdate()
     }
     
     render(){

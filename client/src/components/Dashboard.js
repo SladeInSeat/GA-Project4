@@ -3,12 +3,14 @@ import axios from 'axios'
 import EventDisplay from './EventDisplay';
 import CreateWager from './CreateWager';
 import WagerDisplay from './WagerDisplay';
+import ActiveAccountDisplay from './ActiveAccountDisplay';
 
 
 class Dashboard extends Component {
     state = {
         activeEvent : {
-        }
+        },
+        wagerUpdate: true
     }
 
     setActiveEvent = async (eventObj) => {
@@ -20,10 +22,18 @@ class Dashboard extends Component {
         await this.setState({ activeEvent: newActiveEvent })
       }
 
+      switchWagerUpdate = () => {
+          this.setState({wagerUpdate: !this.state.wagerUpdate})
+      }
+
     render(){
         return(
             <div>
                 I am dashboard
+                <br></br>
+                <ActiveAccountDisplay
+                    activeAccount={this.props.activeAccount}
+                />
                 <br></br>
                 <EventDisplay
                 setActiveEvent={this.setActiveEvent}/>
@@ -31,9 +41,12 @@ class Dashboard extends Component {
                 <CreateWager
                 activeAccount = {this.props.activeAccount}
                 activeEvent = {this.state.activeEvent}
+                switchWagerUpdate = {this.switchWagerUpdate}
                 />
                 <br></br>
-                <WagerDisplay/>
+                <WagerDisplay
+                activeAccount = {this.props.activeAccount}
+                wagerUpdate = {this.state.wagerUpdate}/>
             </div>
         )
     }

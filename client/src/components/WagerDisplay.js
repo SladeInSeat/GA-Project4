@@ -8,10 +8,19 @@ class WagerDisplay extends Component {
         wagerlist: []
     }
 
-    async componentDidMount() {
-        let allWagers = await axios.get("/wagers")
-            this.setState({ wagerlist: allWagers.data })
+    async componentDidMount() {   
+        let allWagers = await axios.get("/wagers",{params: {parentAccount: this.props.activeAccount._id}})
+        await this.setState({ wagerlist: allWagers.data })
     }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.wagerUpdate !== prevProps.wagerUpdate) {
+            axios.get("/wagers",{params: {parentAccount: this.props.activeAccount._id}})
+            .then((allWagers) => {
+                this.setState({ wagerlist: allWagers.data });
+            })
+        }
+      }
 
     render(){
         const viewWageList = this.state.wagerlist.map((wager, index) => {
