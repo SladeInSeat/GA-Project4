@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import LogInPage from './components/LogInPage'
 import AccountDetails from './components/AccountDetails';
 import Dashboard from './components/Dashboard';
+import EditWager from './components/EditWager';
 
 
 
@@ -41,6 +42,14 @@ class App extends Component {
       )
     }
 
+    const EditWagerRender = (props) => {
+      return (
+        <EditWager
+          {...props}
+        />
+      )
+    }
+
 
     return (
       <Router>
@@ -48,7 +57,7 @@ class App extends Component {
         <Switch>
             <Route exact path="/" component={LogInPage}/>
             <Route path="/accountDetails/:accountId" component={AccountDetails}/>
-            {/* <Route path="/wagerDetails/:wagerId" */}
+            <Route path="/wagerDetails/:wagerId" render={EditWagerRender}/>
             <Route path="/dashboard" render={DashboardRender}/>
         </Switch>
         </div>

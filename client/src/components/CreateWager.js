@@ -21,7 +21,6 @@ class CreateWager extends Component {
             parentIdEvent: "596690",
             event: "Miami Marlins vs Atlanta Braves",
             parentAccount: "5cfe95dc08616b0004602dae"
-
         },
         tempWager: 0,
         tempToWin: ''

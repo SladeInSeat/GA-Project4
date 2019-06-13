@@ -18,7 +18,7 @@ wagerController =  {
     },
 
     findWagerById: async function (req,res) {
-        let wager = await Wager.find({_id: req.body.wagerId})
+        let wager = await Wager.find({_id: req.query.wagerId})
         return res.json(wager)
     },
 
