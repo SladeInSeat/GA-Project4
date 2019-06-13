@@ -7,21 +7,30 @@ import WagerDisplay from './WagerDisplay';
 
 class Dashboard extends Component {
     state = {
-        activeAccount: {
-            _id: '',
-            balance: 0,
-            name: ''
-          }
+        activeEvent : {
+        }
     }
+
+    setActiveEvent = async (eventObj) => {
+        let newActiveEvent = this.state.activeEvent
+        newActiveEvent['idEvent'] = eventObj['idEvent']
+        newActiveEvent['event'] = eventObj['event']
+        newActiveEvent['homeTeam'] = eventObj['homeTeam']
+        newActiveEvent['awayTeam'] = eventObj['awayTeam']
+        await this.setState({ activeEvent: newActiveEvent })
+      }
 
     render(){
         return(
             <div>
                 I am dashboard
                 <br></br>
-                <EventDisplay/>
+                <EventDisplay
+                setActiveEvent={this.setActiveEvent}/>
                 <br></br>
-                <CreateWager/>
+                <CreateWager
+                activeAccount = {this.props.activeAccount}
+                />
                 <br></br>
                 <WagerDisplay/>
             </div>

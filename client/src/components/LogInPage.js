@@ -17,14 +17,15 @@ class LogIn extends Component {
       })
   }
 
-  setActiveAccount = (accountObj) => {
-    let newActiveAccount = this.state.activeAccount
-    newActiveAccount['name'] = accountObj['account']['name']
-    newActiveAccount['_id'] = accountObj['account']['_id']
-    newActiveAccount['balance'] = accountObj['account']['balance']
-    this.setState({ activeAccount: newActiveAccount })
-    this.props.history.push('/dashboard')
-  }
+  //  this should be prop from app
+  // setActiveAccount = (accountObj) => {
+  //   let newActiveAccount = this.state.activeAccount
+  //   newActiveAccount['name'] = accountObj['account']['name']
+  //   newActiveAccount['_id'] = accountObj['account']['_id']
+  //   newActiveAccount['balance'] = accountObj['account']['balance']
+  //   this.setState({ activeAccount: newActiveAccount })
+  //   this.props.history.push('/dashboard')
+  // }
 
   handleNameChange = (event) => {
     this.setState({ newAccountName: event.target.value });
@@ -41,24 +42,28 @@ class LogIn extends Component {
       })
   }
 
-  handleDepositChange = (event) => {
-    this.setState({deposit: event.target.value})
+  handleLogIn = function() {
+    this.props.history.push('/dashboard')
   }
   
-  handleDeposit = (amount) => {
-    axios.patch('/account/updateBalance', {accountBalance: amount})
-  }
+  // handleDepositChange = (event) => {
+  //   this.setState({deposit: event.target.value})
+  // }
+  
+  // handleDeposit = (amount) => {
+  //   axios.patch('/account/updateBalance', {accountBalance: amount})
+  // }
 
-  handleDeleteAccount = (accountObj) => {
-    let accountData = accountObj['account']['_id']
-    axios.delete('/account', { data: { accountId: accountData } })
-      .then(() => {
-          axios.get('/accounts')
-            .then((accountList) => {
-              this.setState({ accounts: accountList.data })
-            })
-      })
-  }
+  // handleDeleteAccount = (accountObj) => {
+  //   let accountData = accountObj['account']['_id']
+  //   axios.delete('/account', { data: { accountId: accountData } })
+  //     .then(() => {
+  //         axios.get('/accounts')
+  //           .then((accountList) => {
+  //             this.setState({ accounts: accountList.data })
+  //           })
+  //     })
+  // }
 
 
 
@@ -71,7 +76,7 @@ class LogIn extends Component {
             return (<li key={index}>
               Account Name: {account.name}
               <br></br>Balance: {account.balance}
-              <br></br><button onClick={() => { this.setActiveAccount({ account }) }} >Login</button>
+              <br></br><button onClick={() => { this.props.setActiveAccount({ account }) }} >Activate Account</button>
               <br></br>
               <Link to={`/accountDetails/${account._id}`}>Account Details</Link>
               </li>)
@@ -86,6 +91,10 @@ class LogIn extends Component {
           <button onClick={this.handleCreateNewAccount}>Create New Account</button>
 
         </form>
+        <br></br>
+
+        <Link to={'/dashboard'}>Go To Dashboard</Link>
+
 
 
       </div>

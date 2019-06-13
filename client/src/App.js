@@ -9,23 +9,18 @@ import EditWager from './components/EditWager';
 
 class App extends Component {
   state = {    
-    activeAccount: {
-      _id: '',
-      balance: 0,
-      name: ''
-    },
+    activeAccount: {},
     newBalance: 0,
     deltaDeposit: 0,
     deltaWithdraw: 0
   }
 
-  setActiveAccount = (accountObj) => {
+  setActiveAccount = async (accountObj) => {
     let newActiveAccount = this.state.activeAccount
     newActiveAccount['name'] = accountObj['account']['name']
     newActiveAccount['_id'] = accountObj['account']['_id']
     newActiveAccount['balance'] = accountObj['account']['balance']
-    this.setState({ activeAccount: newActiveAccount })
-    this.props.history.push('/dashboard')
+    await this.setState({ activeAccount: newActiveAccount })
   }
 
 
@@ -50,12 +45,20 @@ class App extends Component {
       )
     }
 
+    const LogInPageRender = (props) => {
+      return (
+        <LogInPage
+          setActiveAccount={this.setActiveAccount}
+          />
+      )
+    }
+
 
     return (
       <Router>
         <div>
         <Switch>
-            <Route exact path="/" component={LogInPage}/>
+            <Route exact path="/" render={LogInPageRender}/>
             <Route path="/accountDetails/:accountId" component={AccountDetails}/>
             <Route path="/wagerDetails/:wagerId" render={EditWagerRender}/>
             <Route path="/dashboard" render={DashboardRender}/>
