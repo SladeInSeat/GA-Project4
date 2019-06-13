@@ -30,6 +30,7 @@ class Dashboard extends Component {
                 <br></br>
                 <CreateWager
                 activeAccount = {this.props.activeAccount}
+                activeEvent = {this.state.activeEvent}
                 />
                 <br></br>
                 <WagerDisplay/>

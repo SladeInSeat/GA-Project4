@@ -61,7 +61,7 @@ class App extends Component {
             <Route exact path="/" render={LogInPageRender}/>
             <Route path="/accountDetails/:accountId" component={AccountDetails}/>
             <Route path="/wagerDetails/:wagerId" render={EditWagerRender}/>
-            <Route path="/dashboard" render={DashboardRender}/>
+            <Route exact path="/dashboard" render={DashboardRender}/>
         </Switch>
         </div>
       </Router>

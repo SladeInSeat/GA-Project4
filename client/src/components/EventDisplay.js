@@ -50,7 +50,8 @@ class EventDisplay extends Component{
             return (
                 <li key={index}>
                     Event name: {eventObj.event}
-                    
+                    <br></br>
+                    <button onClick={() => {this.props.setActiveEvent(eventObj)}}>Place A Wager</button>
                 </li>
             )
         })
