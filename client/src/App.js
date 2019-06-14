@@ -4,6 +4,7 @@ import LogInPage from './components/LogInPage'
 import AccountDetails from './components/AccountDetails';
 import Dashboard from './components/Dashboard';
 import EditWager from './components/EditWager';
+import axios from 'axios';
 
 
 
@@ -12,7 +13,8 @@ class App extends Component {
     activeAccount: {},
     newBalance: 0,
     deltaDeposit: 0,
-    deltaWithdraw: 0
+    deltaWithdraw: 0,
+    newAccountName: ''
   }
 
   setActiveAccount = async (accountObj) => {
@@ -23,6 +25,20 @@ class App extends Component {
     await this.setState({ activeAccount: newActiveAccount })
   }
 
+  handleBalanceChange = async (wagerAmnt) => {
+    let newBalance = this.state.activeAccount.balance - wagerAmnt
+    let newActiveAccount = {...this.state.activeAccount}
+    newActiveAccount.balance = newBalance
+    await this.setState({activeAccount: newActiveAccount})
+    await axios.patch('/account/updateBalance', { accountId: this.state.activeAccount._id,
+                                                  accountBalance: this.state.activeAccount.balance}
+    )                                  
+
+  }
+
+  handleNewBalanceChange = (event) => {
+    this.setState({newBalance : event.target.value})
+  }
 
 
   render () {
@@ -41,6 +57,7 @@ class App extends Component {
       return (
         <EditWager
           {...props}
+          handleBalanceChange={this.handleBalanceChange}
         />
       )
     }
