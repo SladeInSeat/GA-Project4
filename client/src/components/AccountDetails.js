@@ -19,11 +19,11 @@ class AccountDetails extends Component {
             })
     }
 
-    handleNameChange = (event) => {
+    handleAccountNameChange = (event) => {
         this.setState({ newAccountName: event.target.value });
     }
 
-    ChangeName = (event) => {
+    accountNameChange = (event) => {
         event.preventDefault()
         // this.setState({name = this.state.newAccountName})
         axios.patch('/account/updateName', {
@@ -47,7 +47,7 @@ class AccountDetails extends Component {
         this.setState({ deltaWithdraw: event.target.value })
     }
 
-    handleTransaction = async (event) => {
+    handleAccountDetailsTransaction = async (event) => {
         event.preventDefault()
         let calculatedBalance = parseInt(this.state.account.balance, 10) +
             parseInt(this.state.deltaDeposit, 10) -
@@ -67,7 +67,7 @@ class AccountDetails extends Component {
             })
     }
 
-    handleDelete = () => {
+    handleAccountDelete = () => {
         axios.delete('/account', { data: { accountId: this.state.account._id } })
             .then(() => this.props.history.push('/'))
 
@@ -83,9 +83,9 @@ class AccountDetails extends Component {
                     <input
                         type="text"
                         value={this.state.newAccountName}
-                        onChange={this.handleNameChange}
+                        onChange={this.handleAccountNameChange}
                     />
-                    <button onClick={this.ChangeName}>Change Account Name</button>
+                    <button onClick={this.accountNameChange}>Change Account Name</button>
                 </form>
                 <br></br>
                 Balance: {this.state.account.balance}
@@ -97,7 +97,7 @@ class AccountDetails extends Component {
                         onChange={this.handleDeposit}
                         style={{ width: "70px" }}
                     />
-                    <button onClick={this.handleTransaction}>Deposit</button>
+                    <button onClick={this.handleAccountDetailsTransaction}>Deposit</button>
                 </form>
                 <form>
                     <input
@@ -106,13 +106,13 @@ class AccountDetails extends Component {
                         onChange={this.handleWithrawl}
                         style={{ width: "70px" }}
                     />
-                    <button onClick={this.handleTransaction}>Withdraw</button>
+                    <button onClick={this.handleAccountDetailsTransaction}>Withdraw</button>
                 </form>
                 <br></br>
                 <Link to={`/`}>Back to Login</Link>
                 <br></br>
                 <br></br>
-                <button onClick={this.handleDelete}>Delete Account</button>
+                <button onClick={this.handleAccountDelete}>Delete Account</button>
             </div>
         )
     }

@@ -70,6 +70,13 @@ class App extends Component {
       )
     }
 
+    const AccountDetailsRender = (props) => {
+      return(
+        <AccountDetails
+        />
+      )
+    }
+
 
     return (
       <Router>
