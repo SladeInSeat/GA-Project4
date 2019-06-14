@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import axios from 'axios'
 import EventDisplay from './EventDisplay';
 import CreateWager from './CreateWager';
 import WagerDisplay from './WagerDisplay';

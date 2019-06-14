@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
@@ -16,9 +16,10 @@ class EditWager extends Component {
     }
 
     componentDidMount() {
-        axios.get('/wager', { params: { wagerId: this.props.match.params.wagerId } })
+        axios.get('/wager', {
+            params: { wagerId: this.props.match.params.wagerId }
+        })
             .then((foundWager) => {
-                console.log(foundWager.data)
                 this.setState({ wager: foundWager.data[0] })
             })
     }
@@ -29,29 +30,35 @@ class EditWager extends Component {
 
     handleTransactionWager = async (event) => {
         event.preventDefault()
-        let tempWager = {...this.state.wager}
+        let tempWager = { ...this.state.wager }
         tempWager.wager = this.state.deltaWager
-        await this.setState({wager: tempWager})
+        await this.setState({ wager: tempWager })
         await axios.patch('/wager/updateAmount', {
             wagerId: this.state.wager._id,
             wager: this.state.wager.wager
         })
-            .then(() => {
-                axios.get('/wager', { params: { wagerId: this.props.match.params.wagerId } })
+        .then(() => {
+            axios.get('/wager', { params: { wagerId: this.props.match.params.wagerId } })
                 .then((foundWager) => {
                     this.setState({ wager: foundWager.data[0] })
                 })
-            })
+        })
     }
 
-    handleDeleteWager = () => {
-        axios.delete('/wager', { data: { wagerId: this.state.wager._id } })
-            .then(() => this.props.history.push('/dashboard'))
-
+    handleDeleteWager = async () => {
+        await axios.delete('/wager', { data: { wagerId: this.state.wager._id } })
+        let wagersForParentEvent = await axios.get("/wagers/event", { params: { parentIdEvent: this.state.wager.parentIdEvent } })
+        console.log(wagersForParentEvent)
+        if (wagersForParentEvent.data == 0) {
+            let foundEvent = await axios.get('/event/eventid', { params: { idEvent: this.state.wager.parentIdEvent } })
+            let delete_id = foundEvent.data[0]._id
+            await axios.delete('/event', { data: { eventId: delete_id } })
+        }
+        this.props.history.push('/dashboard')
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div>
                 I am EditWager
                 <br></br>

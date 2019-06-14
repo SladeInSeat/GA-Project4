@@ -3,17 +3,17 @@ import axios from 'axios'
 
 class CreateWager extends Component {
     state = {
-        activeEvent: {
-            idEvent: "596690",
-            event: "Miami Marlins vs Atlanta Braves",
-            homeTeam: "Miami Marlins",
-            awayTeam: "Atlanta Braves"
-            },
-        activeAccount: {
-            _id: "5cfe95dc08616b0004602dae",
-            balance: 1020,  
-            name: "test account",
-        },
+        // activeEvent: {
+        //     idEvent: "596690",
+        //     event: "Miami Marlins vs Atlanta Braves",
+        //     homeTeam: "Miami Marlins",
+        //     awayTeam: "Atlanta Braves"
+        //     },
+        // activeAccount: {
+        //     _id: "5cfe95dc08616b0004602dae",
+        //     balance: 1020,  
+        //     name: "test account",
+        // },
         //  set these values from props passed in, all but wager and to win
         newWager: {
             toWin: ' ',

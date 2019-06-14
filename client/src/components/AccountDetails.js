@@ -39,6 +39,10 @@ class AccountDetails extends Component {
             })
     }
 
+    handleDeltaDepositWithdraw = (event) => {
+        let keyValue = event.target.name
+        this.setState({ keyValue : event.target.value})
+    }
     handleDeposit = (event) => {
         this.setState({ deltaDeposit: event.target.value })
     }
@@ -93,8 +97,9 @@ class AccountDetails extends Component {
                 <form>
                     <input
                         type="number"
+                        name='deltaDeposit'
                         value={this.state.deltaDeposit}
-                        onChange={this.handleDeposit}
+                        onChange={this.handleDeltaDepositWithdraw}
                         style={{ width: "70px" }}
                     />
                     <button onClick={this.handleTransaction}>Deposit</button>
@@ -102,8 +107,9 @@ class AccountDetails extends Component {
                 <form>
                     <input
                         type="number"
+                        name='deltaWithdraw'
                         value={this.state.deltaWithdraw}
-                        onChange={this.handleWithrawl}
+                        onChange={this.handleDeltaDepositWithdraw}
                         style={{ width: "70px" }}
                     />
                     <button onClick={this.handleTransaction}>Withdraw</button>

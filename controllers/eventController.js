@@ -13,6 +13,14 @@ eventController = {
         return res.json(foundEvent)
     },
 
+    findEventByIdEvent : async function (req,res) {
+        console.log(req.body)
+        console.log(req.params)
+        console.log(req.query)
+        let foundEvent = await Event.find({ idEvent : req.query.idEvent})
+        return res.json(foundEvent)
+    },
+
     createEvent : async function (req,res) {
         let newEvent = await Event.create({idEvent: req.body.idEvent,
                                     event: req.body.event,
