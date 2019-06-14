@@ -8,9 +8,9 @@ class EditWager extends Component {
             _id: '',
             toWin: '',
             wager: 0,
-            parentIdEvent: "596690",
-            event: "Miami Marlins vs Atlanta Braves",
-            parentAccount: "5cfe95dc08616b0004602dae"
+            parentIdEvent: '',
+            event: '',
+            parentAccount: ''
         },
         deltaWager: 0
     }
@@ -48,7 +48,6 @@ class EditWager extends Component {
     handleDeleteWager = async () => {
         await axios.delete('/wager', { data: { wagerId: this.state.wager._id } })
         let wagersForParentEvent = await axios.get("/wagers/event", { params: { parentIdEvent: this.state.wager.parentIdEvent } })
-        console.log(wagersForParentEvent)
         if (wagersForParentEvent.data == 0) {
             let foundEvent = await axios.get('/event/eventid', { params: { idEvent: this.state.wager.parentIdEvent } })
             let delete_id = foundEvent.data[0]._id

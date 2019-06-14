@@ -7,7 +7,6 @@ const apiController = {
                                 { params: { id: 4424 } })
         res.json(next15Games.data)
     }
-
 }
 
 module.exports = apiController;

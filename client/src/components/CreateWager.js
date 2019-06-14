@@ -37,12 +37,15 @@ class CreateWager extends Component {
         tempNewWager.toWin = this.state.tempToWin
         tempNewWager.wager = this.state.tempWager
         await this.setState({newWager: tempNewWager });
-        await axios.post("/event", { idEvent: this.props.activeEvent.idEvent,
-                                event: this.props.activeEvent.event,
-                                homeTeam: this.props.activeEvent.homeTeam,
-                                awayTeam: this.props.activeEvent.awayTeam,
-                                parentAccount: this.props.activeAccount._id
-        })
+        let foundEvent = await axios.get('/event/eventid', { params: { idEvent: this.props.activeEvent.idEvent } })
+        if(foundEvent.data.length == 0){
+            await axios.post("/event", { idEvent: this.props.activeEvent.idEvent,
+                event: this.props.activeEvent.event,
+                homeTeam: this.props.activeEvent.homeTeam,
+                awayTeam: this.props.activeEvent.awayTeam,
+                parentAccount: this.props.activeAccount._id
+            })
+        }
         await axios.post("/wager", {toWin: this.state.newWager.toWin,
                                 wager: this.state.newWager.wager,
                                 parentIdEvent: this.props.activeEvent.idEvent,
