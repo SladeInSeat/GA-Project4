@@ -52,6 +52,7 @@ class CreateWager extends Component {
                                 event: this.props.activeEvent.event,
                                 parentAccount: this.props.activeAccount._id}
         )
+        await this.props.handleBalanceChange(this.state.newWager.wager)
         await this.props.switchWagerUpdate()
     }
     

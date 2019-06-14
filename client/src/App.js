@@ -49,6 +49,7 @@ class App extends Component {
           {...props}
           activeAccount={this.state.activeAccount}
           setActiveAccount={this.setActiveAccount}
+          handleBalanceChange={this.handleBalanceChange}
         />
       )
     }

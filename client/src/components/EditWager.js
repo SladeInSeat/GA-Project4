@@ -12,7 +12,7 @@ class EditWager extends Component {
             event: '',
             parentAccount: ''
         },
-        deltaWager: 0
+        newWager: 0
     }
 
     componentDidMount() {
@@ -25,13 +25,15 @@ class EditWager extends Component {
     }
 
     handleWagerChange = (event) => {
-        this.setState({ deltaWager: event.target.value })
+        this.setState({ newWager: event.target.value })
     }
 
     handleTransactionWager = async (event) => {
         event.preventDefault()
+        let wagerAmnt = this.state.newWager - this.state.wager.wager
+        this.props.handleBalanceChange(wagerAmnt)
         let tempWager = { ...this.state.wager }
-        tempWager.wager = this.state.deltaWager
+        tempWager.wager = this.state.newWager
         await this.setState({ wager: tempWager })
         await axios.patch('/wager/updateAmount', {
             wagerId: this.state.wager._id,
@@ -70,7 +72,7 @@ class EditWager extends Component {
                 <form>
                     <input
                         type="number"
-                        value={this.state.deltaWager}
+                        value={this.state.newWager}
                         onChange={this.handleWagerChange}
                         style={{ width: "70px" }}
                     />

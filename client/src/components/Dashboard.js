@@ -41,6 +41,7 @@ class Dashboard extends Component {
                 activeAccount = {this.props.activeAccount}
                 activeEvent = {this.state.activeEvent}
                 switchWagerUpdate = {this.switchWagerUpdate}
+                handleBalanceChange={this.props.handleBalanceChange}
                 />
                 <br></br>
                 <WagerDisplay
