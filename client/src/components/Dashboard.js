@@ -7,7 +7,7 @@ import ActiveAccountDisplay from './ActiveAccountDisplay';
 
 class Dashboard extends Component {
     state = {
-        activeEvent : {
+        activeEvent: {
         },
         wagerUpdate: true
     }
@@ -19,14 +19,14 @@ class Dashboard extends Component {
         newActiveEvent['homeTeam'] = eventObj['homeTeam']
         newActiveEvent['awayTeam'] = eventObj['awayTeam']
         await this.setState({ activeEvent: newActiveEvent })
-      }
+    }
 
-      switchWagerUpdate = () => {
-          this.setState({wagerUpdate: !this.state.wagerUpdate})
-      }
+    switchWagerUpdate = () => {
+        this.setState({ wagerUpdate: !this.state.wagerUpdate })
+    }
 
-    render(){
-        return(
+    render() {
+        return (
             <div>
                 I am dashboard
                 <br></br>
@@ -35,18 +35,18 @@ class Dashboard extends Component {
                 />
                 <br></br>
                 <EventDisplay
-                setActiveEvent={this.setActiveEvent}/>
+                    setActiveEvent={this.setActiveEvent} />
                 <br></br>
                 <CreateWager
-                activeAccount = {this.props.activeAccount}
-                activeEvent = {this.state.activeEvent}
-                switchWagerUpdate = {this.switchWagerUpdate}
-                handleBalanceChange={this.props.handleBalanceChange}
+                    activeAccount={this.props.activeAccount}
+                    activeEvent={this.state.activeEvent}
+                    switchWagerUpdate={this.switchWagerUpdate}
+                    handleBalanceChange={this.props.handleBalanceChange}
                 />
                 <br></br>
                 <WagerDisplay
-                activeAccount = {this.props.activeAccount}
-                wagerUpdate = {this.state.wagerUpdate}/>
+                    activeAccount={this.props.activeAccount}
+                    wagerUpdate={this.state.wagerUpdate} />
             </div>
         )
     }

@@ -9,7 +9,7 @@ import axios from 'axios';
 
 
 class App extends Component {
-  state = {    
+  state = {
     activeAccount: {},
     newBalance: 0,
     deltaDeposit: 0,
@@ -17,38 +17,39 @@ class App extends Component {
     newAccountName: ''
   }
 
-  setActiveAccount = async (accountObj) => {
+  setActiveAccount = async (accountObj, history) => {
     let newActiveAccount = this.state.activeAccount
-    newActiveAccount['name'] = accountObj['account']['name']
-    newActiveAccount['_id'] = accountObj['account']['_id']
-    newActiveAccount['balance'] = accountObj['account']['balance']
+    newActiveAccount['name'] = accountObj['name']
+    newActiveAccount['_id'] = accountObj['_id']
+    newActiveAccount['balance'] = accountObj['balance']
     await this.setState({ activeAccount: newActiveAccount })
+    history.push('/dashboard')
   }
 
   handleBalanceChange = async (wagerAmnt) => {
     let newBalance = this.state.activeAccount.balance - wagerAmnt
-    let newActiveAccount = {...this.state.activeAccount}
+    let newActiveAccount = { ...this.state.activeAccount }
     newActiveAccount.balance = newBalance
-    await this.setState({activeAccount: newActiveAccount})
-    await axios.patch('/account/updateBalance', { accountId: this.state.activeAccount._id,
-                                                  accountBalance: this.state.activeAccount.balance}
-    )                                  
-
+    await this.setState({ activeAccount: newActiveAccount })
+    await axios.patch('/account/updateBalance', {
+      accountId: this.state.activeAccount._id,
+      accountBalance: this.state.activeAccount.balance
+    })
   }
 
   handleNewBalanceChange = (event) => {
-    this.setState({newBalance : event.target.value})
+    this.setState({ newBalance: event.target.value })
   }
 
 
-  render () {
+  render() {
 
     const DashboardRender = (props) => {
       return (
         <Dashboard
           {...props}
           activeAccount={this.state.activeAccount}
-          setActiveAccount={this.setActiveAccount}
+          // setActiveAccount={this.setActiveAccount}
           handleBalanceChange={this.handleBalanceChange}
         />
       )
@@ -65,14 +66,15 @@ class App extends Component {
 
     const LogInPageRender = (props) => {
       return (
-        <LogInPage
+        <LogInPage          
+          {...props}
           setActiveAccount={this.setActiveAccount}
-          />
+        />
       )
     }
 
     const AccountDetailsRender = (props) => {
-      return(
+      return (
         <AccountDetails
         />
       )
@@ -82,12 +84,12 @@ class App extends Component {
     return (
       <Router>
         <div>
-        <Switch>
-            <Route exact path="/" render={LogInPageRender}/>
-            <Route path="/accountDetails/:accountId" component={AccountDetails}/>
-            <Route path="/wagerDetails/:wagerId" render={EditWagerRender}/>
-            <Route exact path="/dashboard" render={DashboardRender}/>
-        </Switch>
+          <Switch>
+            <Route exact path="/" render={LogInPageRender} />
+            <Route path="/accountDetails/:accountId" component={AccountDetails} />
+            <Route path="/wagerDetails/:wagerId" render={EditWagerRender} />
+            <Route exact path="/dashboard" render={DashboardRender} />
+          </Switch>
         </div>
       </Router>
     )

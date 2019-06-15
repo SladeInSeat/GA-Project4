@@ -5,26 +5,7 @@ import axios from 'axios'
 
 class EventDisplay extends Component{
     state = {
-        eventList : [
-            // {idEvent: "596690",
-            // event: "Miami Marlins vs Atlanta Braves",
-            // homeTeam: "Miami Marlins",
-            // awayTeam: "Atlanta Braves",
-            // parentAccount: "5cfe95dc08616b0004602dae"
-            // },
-            // {idEvent: "596691",
-            // event: "Chicago Cubs vs St. Louis Cardinals",
-            // homeTeam: "St. Louis Cardinals",
-            // awayTeam: "Chicago Cubs",
-            // parentAccount: "5cfe95dc08616b0004602dae"
-            // },
-            // {idEvent: "596692",
-            // event: "New York Mets vs Colorado Rockies",
-            // homeTeam: "Colorado Rockies",
-            // awayTeam: "New York Mets",
-            // parentAccount: "5cfe95dc08616b0004602dae"
-            // }
-        ]
+        eventList : []
     }
 
     getNext15LeagueGames = async  () => {

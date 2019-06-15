@@ -76,7 +76,7 @@ class LogIn extends Component {
             return (<li key={index}>
               Account Name: {account.name}
               <br></br>Balance: {account.balance}
-              <br></br><button onClick={() => { this.props.setActiveAccount({ account }) }} >Activate Account</button>
+              <br></br><button onClick={() => { this.props.setActiveAccount(account, this.props.history) }} >Activate Account</button>
               <br></br>
               <Link to={`/accountDetails/${account._id}`}>Account Details</Link>
               </li>)
