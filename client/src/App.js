@@ -17,24 +17,18 @@ class App extends Component {
     newAccountName: ''
   }
 
-  setActiveAccount = async (accountObj, history) => {
-    let newActiveAccount = this.state.activeAccount
-    newActiveAccount['name'] = accountObj['name']
-    newActiveAccount['_id'] = accountObj['_id']
-    newActiveAccount['balance'] = accountObj['balance']
-    await this.setState({ activeAccount: newActiveAccount })
+  setActiveAccount = (accountObj, history) => {
+    this.setState({ activeAccount: accountObj })
     history.push('/dashboard')
   }
 
   handleBalanceChange = async (wagerAmnt) => {
-    let newBalance = this.state.activeAccount.balance - wagerAmnt
-    let newActiveAccount = { ...this.state.activeAccount }
-    newActiveAccount.balance = newBalance
-    await this.setState({ activeAccount: newActiveAccount })
-    await axios.patch('/account/updateBalance', {
+    const calculatedBalance = this.state.activeAccount.balance - wagerAmnt
+    const updatedAccount = (await axios.patch('/account/updateBalance', {
       accountId: this.state.activeAccount._id,
-      accountBalance: this.state.activeAccount.balance
-    })
+      accountBalance: calculatedBalance
+    })).data
+    this.setState({ activeAccount: updatedAccount })
   }
 
   handleNewBalanceChange = (event) => {
@@ -49,7 +43,6 @@ class App extends Component {
         <Dashboard
           {...props}
           activeAccount={this.state.activeAccount}
-          // setActiveAccount={this.setActiveAccount}
           handleBalanceChange={this.handleBalanceChange}
         />
       )
