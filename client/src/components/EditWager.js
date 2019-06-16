@@ -60,9 +60,9 @@ class EditWager extends Component {
 
     render() {
         return (
-            <div class="card blue darken-3">
-            <div class="card-content black-text">
-              <div class="card-title black-text">Event: {this.state.wager.event}</div>
+            <div class="card transparent z-depth-6">
+            <div class="card-content blue-text">
+              <div class="card-title blue-text">Event: {this.state.wager.event}</div>
               To win: {this.state.wager.toWin}
                 <br></br>
                 Amount: {this.state.wager.wager}
@@ -73,7 +73,7 @@ class EditWager extends Component {
                         type="number"
                         value={this.state.newWager}
                         onChange={this.handleWagerChange}
-                        style={{ width: "70px" }}
+                        style={{ width: "70px", color: 'white' }}
                     />
                     <button onClick={this.handleTransactionWager}>Change Amount</button>
                 </div>

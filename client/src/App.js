@@ -77,7 +77,7 @@ class App extends Component {
       <Router>
         <div class='container'>
           <nav>
-            <div class="nav-wrapper teal">
+            <div class="nav-wrapper">
               <a href="#" class="brand-logo">BigBoard for MLB</a>
               <ul id="nav-mobile" class="right">
                 <li><a href="/">Log In</a></li>

@@ -73,13 +73,13 @@ class LogIn extends Component {
         <div class="row">
           {this.state.accounts.map((account, index) => {
             return(
-              <div class="card blue-grey">
-                <div class="card-content black-text">
-                  <div class="card-title black-text">{account.name}</div>
+              <div class="card transparent z-depth-0">
+                <div class="card-content white-text">
+                  <div class="card-title white-text">{account.name}</div>
                   Balance: {account.balance}
                   <br></br>
-                  <button class="blue darken-3 black-text" onClick={() => { this.props.setActiveAccount(account, this.props.history) }} >Activate Account</button>
-                  <button button class="blue darken-3 black-text" ><Link to={`/accountDetails/${account._id}`}>Account Details</Link></button>
+                  <button class="transparent white-text" onClick={() => { this.props.setActiveAccount(account, this.props.history) }} >Activate Account</button>
+                  <button button class="transparent white-text" ><Link to={`/accountDetails/${account._id}`}>Account Details</Link></button>
                 </div>
               </div>
             )

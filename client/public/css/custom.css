@@ -3,3 +3,7 @@ body {
     background-image: url('../images/bigboard.jpg');
     background-color: black;
 }
+
+nav {
+    background: rgba(0,0,0,0);
+}

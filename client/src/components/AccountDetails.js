@@ -75,9 +75,9 @@ class AccountDetails extends Component {
 
     render() {
         return (
-            <div class="card blue-grey">
-            <div class="card-content black-text">
-              <div class="card-title black-text"><h1>Accout Details</h1></div>
+            <div class="card transparent z-depth-0">
+            <div class="card-content white-text">
+              <div class="card-title white-text"><h3>Accout Details</h3></div>
               Name: {this.state.account.name}
               <br></br>
               <form>
@@ -86,6 +86,7 @@ class AccountDetails extends Component {
                         type="text"
                         value={this.state.newAccountName}
                         onChange={this.handleAccountNameChange}
+                        style={{ width: "200px", color: 'white' }}
                     />
                     <button onClick={this.accountNameChange}>Change Account Name</button>
                     </div>
@@ -99,7 +100,7 @@ class AccountDetails extends Component {
                             type="number"
                             value={this.state.deltaDeposit}
                             onChange={this.handleDeposit}
-                            style={{ width: "70px" }}
+                            style={{ width: "70px", color: 'white' }}
                         />
                         <button onClick={this.handleAccountDetailsTransaction}>Deposit</button>
                     </div>
@@ -110,7 +111,7 @@ class AccountDetails extends Component {
                             type="number"
                             value={this.state.deltaWithdraw}
                             onChange={this.handleWithrawl}
-                            style={{ width: "70px" }}
+                            style={{ width: "70px", color: 'white' }}
                         />
                         <button onClick={this.handleAccountDetailsTransaction}>Withdraw</button>
                     </div>
@@ -119,7 +120,7 @@ class AccountDetails extends Component {
                 <button button class="black" ><Link to={`/`}>Back to Login</Link></button>
                 <br></br>
                 <br></br>
-                <button button class="blue darken-3 black-text"onClick={this.handleAccountDelete}>Delete Account</button>
+                <button button class="blue darken-3 white-text"onClick={this.handleAccountDelete}>Delete Account</button>
             </div>
           </div>
             // <div>

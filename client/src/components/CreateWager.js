@@ -59,9 +59,9 @@ class CreateWager extends Component {
     render(){
         return (
             <div>
-                <div class="card blue darken-3">
-                    <div class="card-content black-text">
-                        <div class="card-title black-text">Event Name: 
+                <div class="card transparent z-depth-6">
+                    <div class="card-content white-text">
+                        <div class="card-title white-text">Event Name: 
                             <br></br>
                             {this.props.activeEvent.event}
                         </div>
@@ -80,11 +80,12 @@ class CreateWager extends Component {
                                 type="number"
                                 value={this.state.tempWager}
                                 onChange={this.handleChangeWager}
-                                style={{ width: "70px" }}
+                                style={{ width: "70px", color: 'white' }}
                             />
                             
                             <br></br>
-                            <input type="submit" value="Place Wager" />
+                            <input class="transparent" style={{ width: "100px", color: 'white' }} type="submit" value="Place Wager" />
+                            {/* <button button class="transparent" ><Link to={`/wagerDetails/${wager._id}`}>Wager Details</Link></button> */}
                             </div>
                         </form>
 
