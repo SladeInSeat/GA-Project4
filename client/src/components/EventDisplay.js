@@ -30,22 +30,25 @@ class EventDisplay extends Component{
     
 
     render(){
-        const viewEventList = this.state.eventList.map((eventObj, index) => {
+        const viewEventList = this.state.eventList.map((eventObj) => {
             return (
-                <li key={index}>
-                    Event name: {eventObj.event}
-                    <br></br>
-                    <button onClick={() => {this.props.setActiveEvent(eventObj)}}>Place A Wager</button>
-                </li>
+                <div class="card teal">
+                    <div class="card-content black-text">
+                        <div class="card-title black-text">Event name: {eventObj.event}</div>
+                        <button onClick={() => {this.props.setActiveEvent(eventObj)}}>Place A Wager</button>     
+                    </div>
+                </div>
+                // <li key={index}>
+                //     Event name: {eventObj.event}
+                //     <br></br>
+                //     <button onClick={() => {this.props.setActiveEvent(eventObj)}}>Place A Wager</button>
+                // </li>
             )
         })
         
         return(
             <div>
-                I am EventDisplay
-                <ol>
-                    {viewEventList}
-                </ol>
+                {viewEventList}
                 <button onClick={this.getNext15LeagueGames}>Search</button>
             </div>
         )

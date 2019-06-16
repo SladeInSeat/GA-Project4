@@ -75,45 +75,92 @@ class AccountDetails extends Component {
 
     render() {
         return (
-            <div>
-                <h1>Accout Details</h1>
-                Name: {this.state.account.name}
-                <br></br>
-                <form>
+            <div class="card blue-grey">
+            <div class="card-content black-text">
+              <div class="card-title black-text"><h1>Accout Details</h1></div>
+              Name: {this.state.account.name}
+              <br></br>
+              <form>
+                <div class='input-field col6'>
                     <input
                         type="text"
                         value={this.state.newAccountName}
                         onChange={this.handleAccountNameChange}
                     />
                     <button onClick={this.accountNameChange}>Change Account Name</button>
+                    </div>
                 </form>
                 <br></br>
                 Balance: {this.state.account.balance}
                 <br></br>
                 <form>
-                    <input
-                        type="number"
-                        value={this.state.deltaDeposit}
-                        onChange={this.handleDeposit}
-                        style={{ width: "70px" }}
-                    />
-                    <button onClick={this.handleAccountDetailsTransaction}>Deposit</button>
+                    <div class='input-field col6'>
+                        <input
+                            type="number"
+                            value={this.state.deltaDeposit}
+                            onChange={this.handleDeposit}
+                            style={{ width: "70px" }}
+                        />
+                        <button onClick={this.handleAccountDetailsTransaction}>Deposit</button>
+                    </div>
                 </form>
                 <form>
-                    <input
-                        type="number"
-                        value={this.state.deltaWithdraw}
-                        onChange={this.handleWithrawl}
-                        style={{ width: "70px" }}
-                    />
-                    <button onClick={this.handleAccountDetailsTransaction}>Withdraw</button>
+                    <div class='input-field col6'>
+                        <input
+                            type="number"
+                            value={this.state.deltaWithdraw}
+                            onChange={this.handleWithrawl}
+                            style={{ width: "70px" }}
+                        />
+                        <button onClick={this.handleAccountDetailsTransaction}>Withdraw</button>
+                    </div>
                 </form>
                 <br></br>
-                <Link to={`/`}>Back to Login</Link>
+                <button button class="black" ><Link to={`/`}>Back to Login</Link></button>
                 <br></br>
                 <br></br>
-                <button onClick={this.handleAccountDelete}>Delete Account</button>
+                <button button class="blue darken-3 black-text"onClick={this.handleAccountDelete}>Delete Account</button>
             </div>
+          </div>
+            // <div>
+            //     <h1>Accout Details</h1>
+            //     Name: {this.state.account.name}
+            //     <br></br>
+            //     <form>
+            //         <input
+            //             type="text"
+            //             value={this.state.newAccountName}
+            //             onChange={this.handleAccountNameChange}
+            //         />
+            //         <button onClick={this.accountNameChange}>Change Account Name</button>
+            //     </form>
+            //     <br></br>
+            //     Balance: {this.state.account.balance}
+            //     <br></br>
+            //     <form>
+            //         <input
+            //             type="number"
+            //             value={this.state.deltaDeposit}
+            //             onChange={this.handleDeposit}
+            //             style={{ width: "70px" }}
+            //         />
+            //         <button onClick={this.handleAccountDetailsTransaction}>Deposit</button>
+            //     </form>
+            //     <form>
+            //         <input
+            //             type="number"
+            //             value={this.state.deltaWithdraw}
+            //             onChange={this.handleWithrawl}
+            //             style={{ width: "70px" }}
+            //         />
+            //         <button onClick={this.handleAccountDetailsTransaction}>Withdraw</button>
+            //     </form>
+            //     <br></br>
+            //     <Link to={`/`}>Back to Login</Link>
+            //     <br></br>
+            //     <br></br>
+            //     <button onClick={this.handleAccountDelete}>Delete Account</button>
+            // </div>
         )
     }
 

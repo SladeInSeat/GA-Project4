@@ -1,6 +1,6 @@
 import React, { Component} from 'react'
 import axios from 'axios'
-
+// blue-grey
 class CreateWager extends Component {
     state = {
         // activeEvent: {
@@ -59,8 +59,40 @@ class CreateWager extends Component {
     render(){
         return (
             <div>
-                I am Create a Wager:<br></br>
-                Event Name: {this.props.activeEvent.event}
+                <div class="card blue darken-3">
+                    <div class="card-content black-text">
+                        <div class="card-title black-text">Event Name: 
+                            <br></br>
+                            {this.props.activeEvent.event}
+                        </div>
+                        <form onSubmit={this.handleSubmit}>
+                            Choose team to win:
+                            <div class='input-field col6'>
+                                <select class="browser-default" value={this.state.toWin} onChange={this.handleChangeToWin}>
+                                    <option value={this.props.activeEvent.homeTeam}>{this.props.activeEvent.homeTeam}</option>
+                                    <option value={this.props.activeEvent.awayTeam}>{this.props.activeEvent.awayTeam}</option>
+                                </select>
+                            </div>
+                            <br></br>
+                            Choose an amount to wager:
+                            <div class='input-field col6'>
+                            <input
+                                type="number"
+                                value={this.state.tempWager}
+                                onChange={this.handleChangeWager}
+                                style={{ width: "70px" }}
+                            />
+                            
+                            <br></br>
+                            <input type="submit" value="Place Wager" />
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+                // {
+                    /* Event Name: {this.props.activeEvent.event}
                 <form onSubmit={this.handleSubmit}>
                     Choose team to win:
                     <select value={this.state.toWin} onChange={this.handleChangeToWin}>
@@ -78,8 +110,9 @@ class CreateWager extends Component {
                     />
                     <br></br>
                     <input type="submit" value="Submit" />
-                </form>  
-            </div>
+                </form>   */
+            // }
+            // </div>
         )
     }
 }

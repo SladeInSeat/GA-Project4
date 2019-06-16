@@ -69,35 +69,52 @@ class LogIn extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Log-In</h1>
-        <ol>
+      <div class="container">
+        <div class="row">
           {this.state.accounts.map((account, index) => {
-            return (<li key={index}>
-              Account Name: {account.name}
-              <br></br>Balance: {account.balance}
-              <br></br><button onClick={() => { this.props.setActiveAccount(account, this.props.history) }} >Activate Account</button>
-              <br></br>
-              <Link to={`/accountDetails/${account._id}`}>Account Details</Link>
-              </li>)
+            return(
+              <div class="card blue-grey">
+                <div class="card-content black-text">
+                  <div class="card-title black-text">{account.name}</div>
+                  Balance: {account.balance}
+                  <br></br>
+                  <button class="blue darken-3 black-text" onClick={() => { this.props.setActiveAccount(account, this.props.history) }} >Activate Account</button>
+                  <button button class="blue darken-3 black-text" ><Link to={`/accountDetails/${account._id}`}>Account Details</Link></button>
+                </div>
+              </div>
+            )
           })}
-        </ol>
-        <form>
-          <input
-            type="text"
-            value={this.state.newAccountName}
-            onChange={this.handleNameChange}
-          />
-          <button onClick={this.handleCreateNewAccount}>Create New Account</button>
-
-        </form>
-        <br></br>
-
-        <Link to={'/dashboard'}>Go To Dashboard</Link>
-
-
-
+        </div>
       </div>
+      // <div>
+      //   <h1>Log-In</h1>
+      //   <ol>
+      //     {this.state.accounts.map((account, index) => {
+      //       return (<li key={index}>
+      //         Account Name: {account.name}
+      //         <br></br>Balance: {account.balance}
+      //         <br></br><button onClick={() => { this.props.setActiveAccount(account, this.props.history) }} >Activate Account</button>
+      //         <br></br>
+      //         <Link to={`/accountDetails/${account._id}`}>Account Details</Link>
+      //         </li>)
+      //     })}
+      //   </ol>
+      //   <form>
+      //     <input
+      //       type="text"
+      //       value={this.state.newAccountName}
+      //       onChange={this.handleNameChange}
+      //     />
+      //     <button onClick={this.handleCreateNewAccount}>Create New Account</button>
+
+      //   </form>
+      //   <br></br>
+
+      //   <Link to={'/dashboard'}>Go To Dashboard</Link>
+
+
+
+      // </div>
     )
   }
 }

@@ -23,17 +23,28 @@ class WagerDisplay extends Component {
       }
 
     render(){
-        const viewWageList = this.state.wagerlist.map((wager, index) => {
+        const viewWageList = this.state.wagerlist.map((wager) => {
             return (
-                <li key={index}>
-                    Wager data: {wager.event}
-                    <br></br>
+                <div class="card blue darken-3">
+                <div class="card-content black-text">
+                  <div class="card-title black-text">Wager data: {wager.event}</div>
                     To win: {wager.toWin}
                     <br></br>
                     Amount: {wager.wager}
                     <br></br>
-                    <Link to={`/wagerDetails/${wager._id}`}>Wager Details</Link>
-                </li>
+                    <button button class="black white-text" ><Link to={`/wagerDetails/${wager._id}`}>Wager Details</Link></button>
+                    {/* <Link to={`/wagerDetails/${wager._id}`}>Wager Details</Link> */}
+                </div>
+              </div>
+                // <li key={index}>
+                //     Wager data: {wager.event}
+                //     <br></br>
+                //     To win: {wager.toWin}
+                //     <br></br>
+                //     Amount: {wager.wager}
+                //     <br></br>
+                //     <Link to={`/wagerDetails/${wager._id}`}>Wager Details</Link>
+                // </li>
             )
         })
 

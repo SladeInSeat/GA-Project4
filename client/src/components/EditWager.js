@@ -60,16 +60,15 @@ class EditWager extends Component {
 
     render() {
         return (
-            <div>
-                I am EditWager
-                <br></br>
-                Event: {this.state.wager.event}
-                <br></br>
-                To win: {this.state.wager.toWin}
+            <div class="card blue darken-3">
+            <div class="card-content black-text">
+              <div class="card-title black-text">Event: {this.state.wager.event}</div>
+              To win: {this.state.wager.toWin}
                 <br></br>
                 Amount: {this.state.wager.wager}
                 <br></br>
                 <form>
+                <div class='input-field col6'>
                     <input
                         type="number"
                         value={this.state.newWager}
@@ -77,12 +76,36 @@ class EditWager extends Component {
                         style={{ width: "70px" }}
                     />
                     <button onClick={this.handleTransactionWager}>Change Amount</button>
+                </div>
                 </form>
                 <br></br>
                 <button onClick={this.handleDeleteWager}>Delete Wager</button>
                 <br></br>
                 <Link to={`/dashboard`}>Back to Dashboard</Link>
             </div>
+          </div>
+            // <div>
+            //     <br></br>
+            //     Event: {this.state.wager.event}
+            //     <br></br>
+            //     To win: {this.state.wager.toWin}
+            //     <br></br>
+            //     Amount: {this.state.wager.wager}
+            //     <br></br>
+            //     <form>
+            //         <input
+            //             type="number"
+            //             value={this.state.newWager}
+            //             onChange={this.handleWagerChange}
+            //             style={{ width: "70px" }}
+            //         />
+            //         <button onClick={this.handleTransactionWager}>Change Amount</button>
+            //     </form>
+            //     <br></br>
+            //     <button onClick={this.handleDeleteWager}>Delete Wager</button>
+            //     <br></br>
+            //     <Link to={`/dashboard`}>Back to Dashboard</Link>
+            // </div>
         )
     }
 }

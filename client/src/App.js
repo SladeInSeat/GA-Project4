@@ -59,7 +59,7 @@ class App extends Component {
 
     const LogInPageRender = (props) => {
       return (
-        <LogInPage          
+        <LogInPage
           {...props}
           setActiveAccount={this.setActiveAccount}
         />
@@ -73,10 +73,17 @@ class App extends Component {
       )
     }
 
-
     return (
       <Router>
-        <div>
+        <div class='container'>
+          <nav>
+            <div class="nav-wrapper teal">
+              <a href="#" class="brand-logo">BigBoard for MLB</a>
+              <ul id="nav-mobile" class="right">
+                <li><a href="/">Log In</a></li>
+              </ul>
+            </div>
+          </nav>
           <Switch>
             <Route exact path="/" render={LogInPageRender} />
             <Route path="/accountDetails/:accountId" component={AccountDetails} />

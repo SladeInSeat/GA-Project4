@@ -5,15 +5,14 @@ class ActiveAccountDisplay extends Component {
 
     render() {
         return (
-            <div>
-                I am ActiveAccountDisplay
-                <br></br>
-                Account: {this.props.activeAccount.name}
-                <br></br>
-                Balance: {this.props.activeAccount.balance}
-                <br></br>
-                <Link to='/'>Return To Login Page</Link>
+            <div class="card blue-grey">
+            <div class="card-content black-text">
+              <div class="card-title black-text">Account: {this.props.activeAccount.name}</div>
+              Balance: {this.props.activeAccount.balance}
+              <br></br>
+              <button button class="black" ><Link to='/'>Return To Login Page</Link></button>
             </div>
+          </div>
         )
     }
 }

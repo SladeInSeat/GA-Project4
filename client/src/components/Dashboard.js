@@ -27,26 +27,32 @@ class Dashboard extends Component {
 
     render() {
         return (
-            <div>
-                I am dashboard
+            <div class='container'>
                 <br></br>
+                <div class='row'>
                 <ActiveAccountDisplay
                     activeAccount={this.props.activeAccount}
                 />
+                </div>
                 <br></br>
-                <EventDisplay
-                    setActiveEvent={this.setActiveEvent} />
-                <br></br>
-                <CreateWager
-                    activeAccount={this.props.activeAccount}
-                    activeEvent={this.state.activeEvent}
-                    switchWagerUpdate={this.switchWagerUpdate}
-                    handleBalanceChange={this.props.handleBalanceChange}
-                />
-                <br></br>
-                <WagerDisplay
-                    activeAccount={this.props.activeAccount}
-                    wagerUpdate={this.state.wagerUpdate} />
+                <div class='row'>
+                    <div class='col s7 m7 l7'>
+                        <CreateWager
+                            activeAccount={this.props.activeAccount}
+                            activeEvent={this.state.activeEvent}
+                            switchWagerUpdate={this.switchWagerUpdate}
+                            handleBalanceChange={this.props.handleBalanceChange}
+                        />
+                        <WagerDisplay
+                            activeAccount={this.props.activeAccount}
+                            wagerUpdate={this.state.wagerUpdate} />
+                    </div>
+                    
+                    <div class='col s5 m5 l5'>
+                        <EventDisplay
+                            setActiveEvent={this.setActiveEvent} />
+                    </div>
+                </div>
             </div>
         )
     }
