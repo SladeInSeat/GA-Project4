@@ -17,6 +17,7 @@ class App extends Component {
     newAccountName: ''
   }
 
+  
   setActiveAccount = (accountObj, history) => {
     this.setState({ activeAccount: accountObj })
     history.push('/dashboard')
@@ -37,7 +38,6 @@ class App extends Component {
 
 
   render() {
-
     const DashboardRender = (props) => {
       return (
         <Dashboard
