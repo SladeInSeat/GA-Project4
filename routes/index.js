@@ -4,7 +4,6 @@ const accountController = require('../controllers/accountController.js')
 const eventController = require('../controllers/eventController.js')
 const wagerController = require('../controllers/wagerController.js')
 const apiController = require('../controllers/apiController.js')
-const mysportsfeedsController = require('../controllers/mysportsfeedsController.js')
 
 //  Account CRUD routes
 
@@ -31,9 +30,6 @@ router.delete("/account", accountController.deleteAccount)
 
 //  API: get next 15 games
 router.get("/api/next15", apiController.leagueNext15Games)
-
-//  API: get all games
-router.get("/api/dailygames", mysportsfeedsController.getDailygames)
 
 //  Event: get all events
 router.get("/events", eventController.findAllEvents)

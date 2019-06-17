@@ -46,13 +46,6 @@ class LogIn extends Component {
     this.props.history.push('/dashboard')
   }
   
-  testapi = function(event) {
-    event.preventDefault()
-    axios.get("/api/dailygames")
-    .then((results) => {
-      console.log(results)
-    })
-  }
   // handleDepositChange = (event) => {
   //   this.setState({deposit: event.target.value})
   // }
@@ -80,7 +73,7 @@ class LogIn extends Component {
         <div class="row">
           {this.state.accounts.map((account, index) => {
             return(
-              <div key = {index} class="card transparent z-depth-0">
+              <div class="card transparent z-depth-0">
                 <div class="card-content white-text">
                   <div class="card-title white-text">{account.name}</div>
                   Balance: {account.balance}
@@ -104,7 +97,7 @@ class LogIn extends Component {
               />
               <br></br>
               <button class="transparent white-text" onClick={this.handleCreateNewAccount}>Create New Account</button>
-              <button class="transparent white-text" onClick={this.testapi}>TestApi</button>
+
             </form>
           </div>
         </div>
