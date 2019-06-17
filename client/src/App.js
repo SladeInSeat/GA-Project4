@@ -80,7 +80,7 @@ class App extends Component {
             <div class="nav-wrapper">
               <a href="#" class="brand-logo">BigBoard for MLB</a>
               <ul id="nav-mobile" class="right">
-                <li><a href="/">Log In</a></li>
+                <li><a href="/">Log Out</a></li>
               </ul>
             </div>
           </nav>
