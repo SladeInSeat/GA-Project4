@@ -2,6 +2,7 @@ const express = require('express')
 const logger = require('morgan')
 const app = express()
 const routes = require('./routes/index.js')
+const dotenv = require('dotenv').config();
 
 
 app.use(logger('dev'))
