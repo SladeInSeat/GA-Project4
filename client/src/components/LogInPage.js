@@ -84,6 +84,22 @@ class LogIn extends Component {
               </div>
             )
           })}
+          
+        </div>
+        <div class='row'>
+          <div class='input-field col6'>
+            <form>
+              <input
+                type="text"
+                value={this.state.newAccountName}
+                onChange={this.handleNameChange}
+                style={{color: "white", width: "250px"}}
+              />
+              <br></br>
+              <button class="transparent white-text" onClick={this.handleCreateNewAccount}>Create New Account</button>
+
+            </form>
+          </div>
         </div>
       </div>
       // <div>
@@ -99,15 +115,15 @@ class LogIn extends Component {
       //         </li>)
       //     })}
       //   </ol>
-      //   <form>
-      //     <input
-      //       type="text"
-      //       value={this.state.newAccountName}
-      //       onChange={this.handleNameChange}
-      //     />
-      //     <button onClick={this.handleCreateNewAccount}>Create New Account</button>
+        // <form>
+        //   <input
+        //     type="text"
+        //     value={this.state.newAccountName}
+        //     onChange={this.handleNameChange}
+        //   />
+        //   <button onClick={this.handleCreateNewAccount}>Create New Account</button>
 
-      //   </form>
+        // </form>
       //   <br></br>
 
       //   <Link to={'/dashboard'}>Go To Dashboard</Link>
