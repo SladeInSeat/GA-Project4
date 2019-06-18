@@ -3,9 +3,16 @@ const btoa = require('btoa')
 
 const mysportsfeedsApi = {
     getDailygames: function (req, res) {
+        let date = new Date()
+        let year = date.getFullYear()
+        let month = ((date.getMonth() + 1) < 10 ? '0' : '') + (date.getMonth() + 1)
+        let day = ((date.getDate()) < 10 ? '0' : '') + (date.getDate())
+        let yyyymmddString = year.toString(10) + month.toString(10) + day.toString(10)
+        console.log(yyyymmddString)
+        let urlString = "https://api.mysportsfeeds.com/v1.0/pull/mlb/current/daily_game_schedule.json?fordate=" + yyyymmddString
         axios({
             type: "GET",
-            url:  "https://api.mysportsfeeds.com/v1.0/pull/mlb/current/daily_game_schedule.json?fordate=20190617",
+            url:  urlString,
             dataType: 'json',
             async: false,
             headers: {
