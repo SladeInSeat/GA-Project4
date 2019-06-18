@@ -18,20 +18,20 @@
      <details>
      <summary>Wireframe</summary>
      
-     ![wireframe](readmeImages/P4wireframe.jpg)
+     ![wireframe](/images/p4wireframe.jpg)
      </details>
      
      <details>
      <summary>Models</summary>
   
-     ![models](readmeImages/P4Models.jpg)
+     ![models](/images/p4Models.jpg)
      </details>
      
      <details>
      
      <summary>Components</summary>
   
-    ![models](readmeImages/P4componentdiagram.jpg)
+    ![models](/images/p4componentdiagram.jpg)
      </details>
   
 -  Create and continue to use Project board for scheduling, time management, and milestone/goal tracking.   [Github Project Page](https://github.com/SladeInSeat/GA-Project4/projects/1) 
