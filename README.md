@@ -1,7 +1,6 @@
 # GA MLB Big Board
 
-  Keep an eye on your investments! Add stocks to a watchlist
-  Try it out! [MLB BigBoard](https://bigboard.herokuapp.com/)
+  [MLB BigBoard](https://bigboard.herokuapp.com/)
 
   The app uses The SportsDB, a free sports data api, to supply data on the next 15 MLB games to be played. A user account may select the game of interest and place a bet on one of the teams to win. Each wager placed or completed will appropriately change the account balance.
   
@@ -19,20 +18,20 @@
      <details>
      <summary>Wireframe</summary>
      
-     ![wireframe](/readmeImages/P4wireframe.jpg)
+     ![wireframe](readmeImages/P4wireframe.jpg)
      </details>
      
      <details>
      <summary>Models</summary>
   
-     ![models](/readmeImages/P4Models.jpg)
+     ![models](readmeImages/P4Models.jpg)
      </details>
      
      <details>
      
      <summary>Components</summary>
   
-    ![models](/readmeImages/P4componentdiagram.jpg)
+    ![models](readmeImages/P4componentdiagram.jpg)
      </details>
   
 -  Create and continue to use Project board for scheduling, time management, and milestone/goal tracking.   [Github Project Page](https://github.com/SladeInSeat/GA-Project4/projects/1) 
